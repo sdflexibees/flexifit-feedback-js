@@ -1,15 +1,21 @@
 import { type ClientSchema, a, defineData } from "@aws-amplify/backend";
 
 /*== STEP 1 ===============================================================
-The section below creates a Todo database table with a "content" field. Try
+The section below creates a FlexifitFeedback database table with a "content" field. Try
 adding a new "isDone" field as a boolean. The authorization rule below
 specifies that any user authenticated via an API key can "create", "read",
-"update", and "delete" any "Todo" records.
+"update", and "delete" any "FlexifitFeedback" records.
 =========================================================================*/
 const schema = a.schema({
-  Todo: a
+  FlexifitFeedback: a
     .model({
-      content: a.string(),
+      comment: a.string(),
+      candidateName: a.string(),
+      candidateId: a.string(),
+      candidateLocation: a.string(),
+      interviewer: a.string(),
+      interviewDate : a.date(),
+
     })
     .authorization((allow) => [allow.publicApiKey()]),
 });
@@ -52,6 +58,6 @@ Fetch records from the database and use them in your frontend component.
 
 /* For example, in a React component, you can use this snippet in your
   function's RETURN statement */
-// const { data: todos } = await client.models.Todo.list()
+// const { data: todos } = await client.models.FlexifitFeedback.list()
 
 // return <ul>{todos.map(todo => <li key={todo.id}>{todo.content}</li>)}</ul>
