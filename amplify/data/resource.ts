@@ -9,13 +9,12 @@ specifies that any user authenticated via an API key can "create", "read",
 const schema = a.schema({
   FlexifitFeedback: a
     .model({
-      comment: a.string(),
-      candidateName: a.string(),
-      candidateId: a.string(),
-      candidateLocation: a.string(),
-      interviewer: a.string(),
-      interviewDate : a.date(),
-
+      comment : a.string(),
+      candidateName : a.string(),
+      candidateId : a.string(),
+      candidateLocation : a.string(),
+      interviewer : a.string(),
+      interviewDate : a.date()
     })
     .authorization((allow) => [allow.publicApiKey()]),
 });
