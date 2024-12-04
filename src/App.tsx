@@ -2,9 +2,6 @@ import { useEffect, useState } from "react";
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
 import { Amplify } from 'aws-amplify';
-import config from './';
-
-import { Amplify } from 'aws-amplify';
 
 Amplify.configure({
   API: {
