@@ -1,29 +1,29 @@
 import { useEffect, useState } from "react";
-import type { Schema } from "../amplify/data/resource";
+import type { FSchema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
 
-const client = generateClient<Schema>();
+const client = generateClient<FSchema>();
 
 function App() {
-  const [todos, setFlexiFitFeedbacks] = useState<Array<Schema["FlexiFitFeedback"]["type"]>>([]);
+  const [todos, setFlexiFitFeedbacks] = useState<Array<FSchema["FlexifitFeedback"]["type"][]>>([]);
 
   useEffect(() => {
-    client.models.FlexiFitFeedback.observeQuery().subscribe({
-      next: (data) => setFlexiFitFeedbacks([...data.items]),
+    client.models.FlexifitFeedback.observeQuery().subscribe({
+      next: (data: { items: any; }) => setFlexiFitFeedbacks([...data.items]),
     });
   }, []);
 
   function createFlexiFitFeedback() {
-    client.models.FlexiFitFeedback.create({ content: window.prompt("FlexiFitFeedback content") });
+    client.models.FlexifitFeedback.create({ comment: window.prompt("FlexiFitFeedback content") });
   }
 
   return (
     <main>
-      <h1>My todos</h1>
+      <h1>My Feedback</h1>
       <button onClick={createFlexiFitFeedback}>+ new</button>
       <ul>
         {todos.map((todo) => (
-          <li key={todo.id}>{todo.content}</li>
+          <li key={todo.id}>{todo.comment}</li>
         ))}
       </ul>
       <div>

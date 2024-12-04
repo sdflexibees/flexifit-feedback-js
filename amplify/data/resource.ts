@@ -20,7 +20,7 @@ const schema = a.schema({
     .authorization((allow) => [allow.publicApiKey()]),
 });
 
-export type Schema = ClientSchema<typeof schema>;
+export type FSchema = ClientSchema<typeof schema>;
 
 export const data = defineData({
   schema,
@@ -58,6 +58,7 @@ Fetch records from the database and use them in your frontend component.
 
 /* For example, in a React component, you can use this snippet in your
   function's RETURN statement */
-// const { data: todos } = await client.models.FlexifitFeedback.list()
 
-// return <ul>{todos.map(todo => <li key={todo.id}>{todo.content}</li>)}</ul>
+//  const { data: todos } = await client.models.FlexifitFeedback.list()
+
+//  return <div>{todos.map(todo => <li key={todo.id}>{todo.content}</li>)}</div>
