@@ -1,0 +1,148 @@
+enum YESNO {
+  YES_1
+  NO_0
+}
+
+enum CareGivingExtent {
+  NA_0
+  COMPLETELY_DEPENEDNET_1
+  PART_CARE_2
+  MONITORING_IS_ENOUGH_3
+}
+
+enum Commitments {
+  N0_FEW_3
+  MODERATE_MANAGEABLE_2
+  MANY_1
+}
+
+enum AGERANGE {
+  NO_KIDS_0
+  YRS_0_5_1
+  YRS_5_12_2
+  YRS_12_16_3
+  YRS_16_PLUS_4
+}
+
+enum Responsibilities {
+  INDIVIDUAL_CONTRIBUTOR_3
+  TEAM_MGMT_1
+  TEAM_MEMBER_4
+  PROJECT_MANAGER_2
+}
+
+enum TypeOfJobByInterviewer {
+  PARTTIME_WFH_3
+  PARTTIME_OFFICE_0
+  PARTTIME_HYBRID_1
+  FULLTIME_WFH_3
+  FULLTIME_HYBRID_1
+  FULLTIME_OFFICE_0
+}
+
+enum ContractType {
+  SHORTTERM_2
+  LONGTERM_1
+}
+
+enum Drive {
+  VERY_HIGH_3
+  HIGH_BUT_NOTDOING_2
+  LOW_1
+}
+
+enum CAREERAMBITION {
+  LONGTERM_1
+  UTILISE_FREE_TIME_2
+  WFH_FLEXIBILITY_3
+  REDUCE_GAP_3
+}
+
+enum FINACIALDRIVE {
+  MAJOR_3
+  MINOR_2
+  SELF_EXPENSE_1
+}
+
+enum LEARNINGREADINESS {
+  LEARNING_ESSENTIAL_1
+  SATISFIED_WITH_WORK_2
+}
+
+enum JobReadiness {
+  LOOKING_VERY_ACTIVELY_3
+  MODERATELY_SEARCHING_2
+  JOB_SEARCH_INACTIVE_1
+}
+
+enum JobSearchResults {
+  NOT_MANY_CALLBACK_3
+  RECEIVED_FAIR_NUMEBER_1
+}
+
+enum JOBRECENCY {
+  MORE_5_YRS_1
+  BETEWEEN_2_5_YRS_2
+  LESS_2_YRS_3
+}
+
+enum SupportRange {
+  NOT_APPLICABLE_0
+  WEAK_1
+  MEDIUM_2
+  STRONG_3
+}
+
+enum SingleType {
+  NA_0
+  UNMARRIED_1
+  DIVORCED_WIDOWED_2
+}
+
+enum Marital {
+  SINGLE_1
+  MARRIED_2
+  NA_0
+}
+
+enum JobLocation {
+  REMOTE
+  OFFICE
+  HYBRID
+}
+
+type FlexifitModel @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  candidateid: ID!
+  candidateName: String
+  interviewerName: String
+  interviewDate: AWSDate
+  candidateLocation: String
+  candidateJobPreference: JobLocation
+  maritalStatus: Marital
+  singleType: SingleType
+  ageOfYoungestKid: AGERANGE
+  spouseSupportForKids: SupportRange
+  spouseSupportForHousehold: SupportRange
+  helperSupportForKids: SupportRange
+  helperSupportForHouseHold: SupportRange
+  otherSupportForKids: SupportRange
+  otherSupportForHouseHold: SupportRange
+  readyToExtendSupport: SupportRange
+  caregiving: YESNO
+  supportForCareGiving: CareGivingExtent
+  Responsibilities: Responsibilities
+  TypeOfContract: ContractType
+  DriveToWork: Drive
+  ImmediateCareerAmbitions: CAREERAMBITION
+  FinancialDriveToWork: FINACIALDRIVE
+  LearningReadiness: LEARNINGREADINESS
+  JobSearchReadiness: JobReadiness
+  JobSearchSuccess: JobSearchResults
+  LastWorked: JOBRECENCY
+  TypeOfRole: TypeOfJobByInterviewer
+  Role_Interviewer: TypeOfJobByInterviewer
+  OtherCommitments: Commitments
+  Interviewer_Proposed_Availability: Int
+}
+ 

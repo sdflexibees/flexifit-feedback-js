@@ -1,0 +1,94 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-flexifit-dev-05933-authRole",
+      "UnauthRoleArn": "arn:aws:iam::531549781078:role/amplify-flexifit-dev-05933-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::531549781078:role/amplify-flexifit-dev-05933-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-flexifit-dev-05933-deployment",
+      "UnauthRoleName": "amplify-flexifit-dev-05933-unauthRole",
+      "StackName": "amplify-flexifit-dev-05933",
+      "StackId": "arn:aws:cloudformation:ap-south-1:531549781078:stack/amplify-flexifit-dev-05933/ebc0edc0-b134-11ef-b501-0a56d6f37225",
+      "AmplifyAppId": "d3b12iretatiqg"
+    }
+  },
+  "api": {
+    "flexifit": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ],
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
+            }
+          }
+        },
+        "GraphQLAPIIdOutput": "zq3kvpyyyvfibpiplk5xnfh2bi",
+        "GraphQLAPIEndpointOutput": "https://2uhe2wcryfezfah4zkjzwjubse.appsync-api.ap-south-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-3thdliomavc7tft54khmfdjaz4"
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync",
+      "lastPushTimeStamp": "2024-12-03T16:12:20.057Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-flexifit-dev-05933-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiflexifit"
+      },
+      "lastPushDirHash": "/CkOZr7rKyDebbd5fdN7/7W6tVI="
+    }
+  },
+  "auth": {
+    "flexifit": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": [
+            "REQUIRES_LOWERCASE",
+            "REQUIRES_NUMBERS",
+            "REQUIRES_SYMBOLS",
+            "REQUIRES_UPPERCASE"
+          ]
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "output": {
+        "UserPoolId": "ap-south-1_WUiU9aEOE",
+        "AppClientIDWeb": "7370iciht4uvq6lrral16825st",
+        "AppClientID": "6ugq7iufgofd1lp5nl10cvqpil",
+        "IdentityPoolId": "ap-south-1:14412793-bff0-4925-88c8-a05fbafc07ba",
+        "UserPoolArn": "arn:aws:cognito-idp:ap-south-1:531549781078:userpool/ap-south-1_WUiU9aEOE",
+        "IdentityPoolName": "testAuthIdentityPool__dev",
+        "UserPoolName": "flexifit"
+      },
+      "lastPushTimeStamp": "2024-12-03T16:12:20.063Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-flexifit-dev-05933-deployment/amplify-cfn-templates/auth/flexifit-cloudformation-template.json",
+        "logicalId": "authflexifit"
+      }
+    }
+  }
+}
