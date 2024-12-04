@@ -23,7 +23,7 @@ function App() {
       <button onClick={createFlexiFitFeedback}>+ new</button>
       <ul>
         {todos.map((todo) => (
-          <li >{todo.length} number of Items </li>
+          <li >{todos.length} number of Items </li>
         ))}
       </ul>
       <div>
