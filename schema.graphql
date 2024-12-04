@@ -1,0 +1,609 @@
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+
+type FlexifitModel @aws_api_key @aws_iam {
+  DriveToWork: Drive
+  FinancialDriveToWork: FINACIALDRIVE
+  ImmediateCareerAmbitions: CAREERAMBITION
+  Interviewer_Proposed_Availability: Int
+  JobSearchReadiness: JobReadiness
+  JobSearchSuccess: JobSearchResults
+  LastWorked: JOBRECENCY
+  LearningReadiness: LEARNINGREADINESS
+  OtherCommitments: Commitments
+  Responsibilities: Responsibilities
+  Role_Interviewer: TypeOfJobByInterviewer
+  TypeOfContract: ContractType
+  TypeOfRole: TypeOfJobByInterviewer
+  ageOfYoungestKid: AGERANGE
+  candidateJobPreference: JobLocation
+  candidateLocation: String
+  candidateName: String
+  candidateid: ID!
+  caregiving: YESNO
+  createdAt: AWSDateTime!
+  helperSupportForHouseHold: SupportRange
+  helperSupportForKids: SupportRange
+  id: ID!
+  interviewDate: AWSDate
+  interviewerName: String
+  maritalStatus: Marital
+  otherSupportForHouseHold: SupportRange
+  otherSupportForKids: SupportRange
+  readyToExtendSupport: SupportRange
+  singleType: SingleType
+  spouseSupportForHousehold: SupportRange
+  spouseSupportForKids: SupportRange
+  supportForCareGiving: CareGivingExtent
+  updatedAt: AWSDateTime!
+}
+
+type ModelFlexifitModelConnection @aws_api_key @aws_iam {
+  items: [FlexifitModel]!
+  nextToken: String
+}
+
+type Mutation {
+  createFlexifitModel(condition: ModelFlexifitModelConditionInput, input: CreateFlexifitModelInput!): FlexifitModel @aws_api_key @aws_iam
+  deleteFlexifitModel(condition: ModelFlexifitModelConditionInput, input: DeleteFlexifitModelInput!): FlexifitModel @aws_api_key @aws_iam
+  updateFlexifitModel(condition: ModelFlexifitModelConditionInput, input: UpdateFlexifitModelInput!): FlexifitModel @aws_api_key @aws_iam
+}
+
+type Query {
+  getFlexifitModel(id: ID!): FlexifitModel @aws_api_key @aws_iam
+  listFlexifitModels(filter: ModelFlexifitModelFilterInput, limit: Int, nextToken: String): ModelFlexifitModelConnection @aws_api_key @aws_iam
+}
+
+type Subscription {
+  onCreateFlexifitModel(filter: ModelSubscriptionFlexifitModelFilterInput): FlexifitModel @aws_api_key @aws_iam @aws_subscribe(mutations : ["createFlexifitModel"])
+  onDeleteFlexifitModel(filter: ModelSubscriptionFlexifitModelFilterInput): FlexifitModel @aws_api_key @aws_iam @aws_subscribe(mutations : ["deleteFlexifitModel"])
+  onUpdateFlexifitModel(filter: ModelSubscriptionFlexifitModelFilterInput): FlexifitModel @aws_api_key @aws_iam @aws_subscribe(mutations : ["updateFlexifitModel"])
+}
+
+enum AGERANGE {
+  NO_KIDS_0
+  YRS_0_5_1
+  YRS_12_16_3
+  YRS_16_PLUS_4
+  YRS_5_12_2
+}
+
+enum CAREERAMBITION {
+  LONGTERM_1
+  REDUCE_GAP_3
+  UTILISE_FREE_TIME_2
+  WFH_FLEXIBILITY_3
+}
+
+enum CareGivingExtent {
+  COMPLETELY_DEPENEDNET_1
+  MONITORING_IS_ENOUGH_3
+  NA_0
+  PART_CARE_2
+}
+
+enum Commitments {
+  MANY_1
+  MODERATE_MANAGEABLE_2
+  N0_FEW_3
+}
+
+enum ContractType {
+  LONGTERM_1
+  SHORTTERM_2
+}
+
+enum Drive {
+  HIGH_BUT_NOTDOING_2
+  LOW_1
+  VERY_HIGH_3
+}
+
+enum FINACIALDRIVE {
+  MAJOR_3
+  MINOR_2
+  SELF_EXPENSE_1
+}
+
+enum JOBRECENCY {
+  BETEWEEN_2_5_YRS_2
+  LESS_2_YRS_3
+  MORE_5_YRS_1
+}
+
+enum JobLocation {
+  HYBRID
+  OFFICE
+  REMOTE
+}
+
+enum JobReadiness {
+  JOB_SEARCH_INACTIVE_1
+  LOOKING_VERY_ACTIVELY_3
+  MODERATELY_SEARCHING_2
+}
+
+enum JobSearchResults {
+  NOT_MANY_CALLBACK_3
+  RECEIVED_FAIR_NUMEBER_1
+}
+
+enum LEARNINGREADINESS {
+  LEARNING_ESSENTIAL_1
+  SATISFIED_WITH_WORK_2
+}
+
+enum Marital {
+  MARRIED_2
+  NA_0
+  SINGLE_1
+}
+
+enum ModelAttributeTypes {
+  _null
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+enum Responsibilities {
+  INDIVIDUAL_CONTRIBUTOR_3
+  PROJECT_MANAGER_2
+  TEAM_MEMBER_4
+  TEAM_MGMT_1
+}
+
+enum SingleType {
+  DIVORCED_WIDOWED_2
+  NA_0
+  UNMARRIED_1
+}
+
+enum SupportRange {
+  MEDIUM_2
+  NOT_APPLICABLE_0
+  STRONG_3
+  WEAK_1
+}
+
+enum TypeOfJobByInterviewer {
+  FULLTIME_HYBRID_1
+  FULLTIME_OFFICE_0
+  FULLTIME_WFH_3
+  PARTTIME_HYBRID_1
+  PARTTIME_OFFICE_0
+  PARTTIME_WFH_3
+}
+
+enum YESNO {
+  NO_0
+  YES_1
+}
+
+input CreateFlexifitModelInput {
+  DriveToWork: Drive
+  FinancialDriveToWork: FINACIALDRIVE
+  ImmediateCareerAmbitions: CAREERAMBITION
+  Interviewer_Proposed_Availability: Int
+  JobSearchReadiness: JobReadiness
+  JobSearchSuccess: JobSearchResults
+  LastWorked: JOBRECENCY
+  LearningReadiness: LEARNINGREADINESS
+  OtherCommitments: Commitments
+  Responsibilities: Responsibilities
+  Role_Interviewer: TypeOfJobByInterviewer
+  TypeOfContract: ContractType
+  TypeOfRole: TypeOfJobByInterviewer
+  ageOfYoungestKid: AGERANGE
+  candidateJobPreference: JobLocation
+  candidateLocation: String
+  candidateName: String
+  candidateid: ID!
+  caregiving: YESNO
+  helperSupportForHouseHold: SupportRange
+  helperSupportForKids: SupportRange
+  id: ID
+  interviewDate: AWSDate
+  interviewerName: String
+  maritalStatus: Marital
+  otherSupportForHouseHold: SupportRange
+  otherSupportForKids: SupportRange
+  readyToExtendSupport: SupportRange
+  singleType: SingleType
+  spouseSupportForHousehold: SupportRange
+  spouseSupportForKids: SupportRange
+  supportForCareGiving: CareGivingExtent
+}
+
+input DeleteFlexifitModelInput {
+  id: ID!
+}
+
+input ModelAGERANGEInput {
+  eq: AGERANGE
+  ne: AGERANGE
+}
+
+input ModelBooleanInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  eq: Boolean
+  ne: Boolean
+}
+
+input ModelCAREERAMBITIONInput {
+  eq: CAREERAMBITION
+  ne: CAREERAMBITION
+}
+
+input ModelCareGivingExtentInput {
+  eq: CareGivingExtent
+  ne: CareGivingExtent
+}
+
+input ModelCommitmentsInput {
+  eq: Commitments
+  ne: Commitments
+}
+
+input ModelContractTypeInput {
+  eq: ContractType
+  ne: ContractType
+}
+
+input ModelDriveInput {
+  eq: Drive
+  ne: Drive
+}
+
+input ModelFINACIALDRIVEInput {
+  eq: FINACIALDRIVE
+  ne: FINACIALDRIVE
+}
+
+input ModelFlexifitModelConditionInput {
+  DriveToWork: ModelDriveInput
+  FinancialDriveToWork: ModelFINACIALDRIVEInput
+  ImmediateCareerAmbitions: ModelCAREERAMBITIONInput
+  Interviewer_Proposed_Availability: ModelIntInput
+  JobSearchReadiness: ModelJobReadinessInput
+  JobSearchSuccess: ModelJobSearchResultsInput
+  LastWorked: ModelJOBRECENCYInput
+  LearningReadiness: ModelLEARNINGREADINESSInput
+  OtherCommitments: ModelCommitmentsInput
+  Responsibilities: ModelResponsibilitiesInput
+  Role_Interviewer: ModelTypeOfJobByInterviewerInput
+  TypeOfContract: ModelContractTypeInput
+  TypeOfRole: ModelTypeOfJobByInterviewerInput
+  ageOfYoungestKid: ModelAGERANGEInput
+  and: [ModelFlexifitModelConditionInput]
+  candidateJobPreference: ModelJobLocationInput
+  candidateLocation: ModelStringInput
+  candidateName: ModelStringInput
+  candidateid: ModelIDInput
+  caregiving: ModelYESNOInput
+  createdAt: ModelStringInput
+  helperSupportForHouseHold: ModelSupportRangeInput
+  helperSupportForKids: ModelSupportRangeInput
+  interviewDate: ModelStringInput
+  interviewerName: ModelStringInput
+  maritalStatus: ModelMaritalInput
+  not: ModelFlexifitModelConditionInput
+  or: [ModelFlexifitModelConditionInput]
+  otherSupportForHouseHold: ModelSupportRangeInput
+  otherSupportForKids: ModelSupportRangeInput
+  readyToExtendSupport: ModelSupportRangeInput
+  singleType: ModelSingleTypeInput
+  spouseSupportForHousehold: ModelSupportRangeInput
+  spouseSupportForKids: ModelSupportRangeInput
+  supportForCareGiving: ModelCareGivingExtentInput
+  updatedAt: ModelStringInput
+}
+
+input ModelFlexifitModelFilterInput {
+  DriveToWork: ModelDriveInput
+  FinancialDriveToWork: ModelFINACIALDRIVEInput
+  ImmediateCareerAmbitions: ModelCAREERAMBITIONInput
+  Interviewer_Proposed_Availability: ModelIntInput
+  JobSearchReadiness: ModelJobReadinessInput
+  JobSearchSuccess: ModelJobSearchResultsInput
+  LastWorked: ModelJOBRECENCYInput
+  LearningReadiness: ModelLEARNINGREADINESSInput
+  OtherCommitments: ModelCommitmentsInput
+  Responsibilities: ModelResponsibilitiesInput
+  Role_Interviewer: ModelTypeOfJobByInterviewerInput
+  TypeOfContract: ModelContractTypeInput
+  TypeOfRole: ModelTypeOfJobByInterviewerInput
+  ageOfYoungestKid: ModelAGERANGEInput
+  and: [ModelFlexifitModelFilterInput]
+  candidateJobPreference: ModelJobLocationInput
+  candidateLocation: ModelStringInput
+  candidateName: ModelStringInput
+  candidateid: ModelIDInput
+  caregiving: ModelYESNOInput
+  createdAt: ModelStringInput
+  helperSupportForHouseHold: ModelSupportRangeInput
+  helperSupportForKids: ModelSupportRangeInput
+  id: ModelIDInput
+  interviewDate: ModelStringInput
+  interviewerName: ModelStringInput
+  maritalStatus: ModelMaritalInput
+  not: ModelFlexifitModelFilterInput
+  or: [ModelFlexifitModelFilterInput]
+  otherSupportForHouseHold: ModelSupportRangeInput
+  otherSupportForKids: ModelSupportRangeInput
+  readyToExtendSupport: ModelSupportRangeInput
+  singleType: ModelSingleTypeInput
+  spouseSupportForHousehold: ModelSupportRangeInput
+  spouseSupportForKids: ModelSupportRangeInput
+  supportForCareGiving: ModelCareGivingExtentInput
+  updatedAt: ModelStringInput
+}
+
+input ModelFloatInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  between: [Float]
+  eq: Float
+  ge: Float
+  gt: Float
+  le: Float
+  lt: Float
+  ne: Float
+}
+
+input ModelIDInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  beginsWith: ID
+  between: [ID]
+  contains: ID
+  eq: ID
+  ge: ID
+  gt: ID
+  le: ID
+  lt: ID
+  ne: ID
+  notContains: ID
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  between: [Int]
+  eq: Int
+  ge: Int
+  gt: Int
+  le: Int
+  lt: Int
+  ne: Int
+}
+
+input ModelJOBRECENCYInput {
+  eq: JOBRECENCY
+  ne: JOBRECENCY
+}
+
+input ModelJobLocationInput {
+  eq: JobLocation
+  ne: JobLocation
+}
+
+input ModelJobReadinessInput {
+  eq: JobReadiness
+  ne: JobReadiness
+}
+
+input ModelJobSearchResultsInput {
+  eq: JobSearchResults
+  ne: JobSearchResults
+}
+
+input ModelLEARNINGREADINESSInput {
+  eq: LEARNINGREADINESS
+  ne: LEARNINGREADINESS
+}
+
+input ModelMaritalInput {
+  eq: Marital
+  ne: Marital
+}
+
+input ModelResponsibilitiesInput {
+  eq: Responsibilities
+  ne: Responsibilities
+}
+
+input ModelSingleTypeInput {
+  eq: SingleType
+  ne: SingleType
+}
+
+input ModelSizeInput {
+  between: [Int]
+  eq: Int
+  ge: Int
+  gt: Int
+  le: Int
+  lt: Int
+  ne: Int
+}
+
+input ModelStringInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  beginsWith: String
+  between: [String]
+  contains: String
+  eq: String
+  ge: String
+  gt: String
+  le: String
+  lt: String
+  ne: String
+  notContains: String
+  size: ModelSizeInput
+}
+
+input ModelSubscriptionBooleanInput {
+  eq: Boolean
+  ne: Boolean
+}
+
+input ModelSubscriptionFlexifitModelFilterInput {
+  DriveToWork: ModelSubscriptionStringInput
+  FinancialDriveToWork: ModelSubscriptionStringInput
+  ImmediateCareerAmbitions: ModelSubscriptionStringInput
+  Interviewer_Proposed_Availability: ModelSubscriptionIntInput
+  JobSearchReadiness: ModelSubscriptionStringInput
+  JobSearchSuccess: ModelSubscriptionStringInput
+  LastWorked: ModelSubscriptionStringInput
+  LearningReadiness: ModelSubscriptionStringInput
+  OtherCommitments: ModelSubscriptionStringInput
+  Responsibilities: ModelSubscriptionStringInput
+  Role_Interviewer: ModelSubscriptionStringInput
+  TypeOfContract: ModelSubscriptionStringInput
+  TypeOfRole: ModelSubscriptionStringInput
+  ageOfYoungestKid: ModelSubscriptionStringInput
+  and: [ModelSubscriptionFlexifitModelFilterInput]
+  candidateJobPreference: ModelSubscriptionStringInput
+  candidateLocation: ModelSubscriptionStringInput
+  candidateName: ModelSubscriptionStringInput
+  candidateid: ModelSubscriptionIDInput
+  caregiving: ModelSubscriptionStringInput
+  createdAt: ModelSubscriptionStringInput
+  helperSupportForHouseHold: ModelSubscriptionStringInput
+  helperSupportForKids: ModelSubscriptionStringInput
+  id: ModelSubscriptionIDInput
+  interviewDate: ModelSubscriptionStringInput
+  interviewerName: ModelSubscriptionStringInput
+  maritalStatus: ModelSubscriptionStringInput
+  or: [ModelSubscriptionFlexifitModelFilterInput]
+  otherSupportForHouseHold: ModelSubscriptionStringInput
+  otherSupportForKids: ModelSubscriptionStringInput
+  readyToExtendSupport: ModelSubscriptionStringInput
+  singleType: ModelSubscriptionStringInput
+  spouseSupportForHousehold: ModelSubscriptionStringInput
+  spouseSupportForKids: ModelSubscriptionStringInput
+  supportForCareGiving: ModelSubscriptionStringInput
+  updatedAt: ModelSubscriptionStringInput
+}
+
+input ModelSubscriptionFloatInput {
+  between: [Float]
+  eq: Float
+  ge: Float
+  gt: Float
+  in: [Float]
+  le: Float
+  lt: Float
+  ne: Float
+  notIn: [Float]
+}
+
+input ModelSubscriptionIDInput {
+  beginsWith: ID
+  between: [ID]
+  contains: ID
+  eq: ID
+  ge: ID
+  gt: ID
+  in: [ID]
+  le: ID
+  lt: ID
+  ne: ID
+  notContains: ID
+  notIn: [ID]
+}
+
+input ModelSubscriptionIntInput {
+  between: [Int]
+  eq: Int
+  ge: Int
+  gt: Int
+  in: [Int]
+  le: Int
+  lt: Int
+  ne: Int
+  notIn: [Int]
+}
+
+input ModelSubscriptionStringInput {
+  beginsWith: String
+  between: [String]
+  contains: String
+  eq: String
+  ge: String
+  gt: String
+  in: [String]
+  le: String
+  lt: String
+  ne: String
+  notContains: String
+  notIn: [String]
+}
+
+input ModelSupportRangeInput {
+  eq: SupportRange
+  ne: SupportRange
+}
+
+input ModelTypeOfJobByInterviewerInput {
+  eq: TypeOfJobByInterviewer
+  ne: TypeOfJobByInterviewer
+}
+
+input ModelYESNOInput {
+  eq: YESNO
+  ne: YESNO
+}
+
+input UpdateFlexifitModelInput {
+  DriveToWork: Drive
+  FinancialDriveToWork: FINACIALDRIVE
+  ImmediateCareerAmbitions: CAREERAMBITION
+  Interviewer_Proposed_Availability: Int
+  JobSearchReadiness: JobReadiness
+  JobSearchSuccess: JobSearchResults
+  LastWorked: JOBRECENCY
+  LearningReadiness: LEARNINGREADINESS
+  OtherCommitments: Commitments
+  Responsibilities: Responsibilities
+  Role_Interviewer: TypeOfJobByInterviewer
+  TypeOfContract: ContractType
+  TypeOfRole: TypeOfJobByInterviewer
+  ageOfYoungestKid: AGERANGE
+  candidateJobPreference: JobLocation
+  candidateLocation: String
+  candidateName: String
+  candidateid: ID
+  caregiving: YESNO
+  helperSupportForHouseHold: SupportRange
+  helperSupportForKids: SupportRange
+  id: ID!
+  interviewDate: AWSDate
+  interviewerName: String
+  maritalStatus: Marital
+  otherSupportForHouseHold: SupportRange
+  otherSupportForKids: SupportRange
+  readyToExtendSupport: SupportRange
+  singleType: SingleType
+  spouseSupportForHousehold: SupportRange
+  spouseSupportForKids: SupportRange
+  supportForCareGiving: CareGivingExtent
+}

@@ -2,9 +2,21 @@ import { useEffect, useState } from "react";
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
 import { Amplify } from 'aws-amplify';
-import config from '../aws-exports.js';
+import config from './';
 
-Amplify.configure(config);
+import { Amplify } from 'aws-amplify';
+
+Amplify.configure({
+  API: {
+    GraphQL: {
+      endpoint: 'https://2uhe2wcryfezfah4zkjzwjubse.appsync-api.ap-south-1.amazonaws.com/graphql',
+      region: 'ap-south-1',
+      defaultAuthMode: 'apiKey',
+      apiKey: 'da2-3thdliomavc7tft54khmfdjaz4'
+    }
+  }
+});
+
 const client = generateClient<Schema>();
 
 function App() {
