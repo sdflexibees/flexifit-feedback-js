@@ -23,17 +23,10 @@ function App() {
     <main>
       <h1>My Feedback</h1>
       <FlexifitFeedbackCreateForm />
-      <button onClick={createFlexiFitFeedback}>+ new</button>
+      <button onClick={createFlexiFitFeedback}>Refresh</button>
       <ul>
       Number of Items : {todos.length} 
       </ul>
-      <div>
-        🥳 App successfully hosted. Try creating a new todo.
-        <br />
-        <a href="https://docs.amplify.aws/react/start/quickstart/#make-frontend-updates">
-          Review next step of this tutorial.
-        </a>
-      </div>
     </main>
   );
 }
