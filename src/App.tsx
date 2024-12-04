@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import type { FSchema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
+import {FlexifitFeedbackCreateForm} from "./ui-components";
+
 
 const client = generateClient<FSchema>();
 
@@ -14,17 +16,16 @@ function App() {
   }, []);
 
   function createFlexiFitFeedback() {
-    client.models.FlexifitFeedback.create({ comment: window.prompt("FlexiFitFeedback content") });
+    // client.models.FlexifitFeedback.create({ comment: window.FormData() });
   }
 
   return (
     <main>
       <h1>My Feedback</h1>
+      <FlexifitFeedbackCreateForm />
       <button onClick={createFlexiFitFeedback}>+ new</button>
       <ul>
-        {todos.map((todo) => (
-          <li >{todos.length} number of Items </li>
-        ))}
+      Number of Items : {todos.length} 
       </ul>
       <div>
         🥳 App successfully hosted. Try creating a new todo.
