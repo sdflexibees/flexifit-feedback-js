@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import type { FSchema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
 import {FlexifitFeedbackCreateForm } from "./ui-components" ;
-
+import { withAuthenticator } from '@aws-amplify/ui-react';
 
 const client = generateClient<FSchema>();
 
@@ -17,12 +17,14 @@ function App() {
 
   
   return (
-    <main>
-      <h1>My Feedback</h1>
-      <FlexifitFeedbackCreateForm />
-    
-    </main>
+    // <main>
+      
+    <div>
+      {/* <AmplifySignOut /> */}
+    <h1>My Feedback</h1>
+    <FlexifitFeedbackCreateForm /></div>
+    // </main>
   );
 }
 
-export default App;
+export default withAuthenticator(App);
