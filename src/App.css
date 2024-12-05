@@ -32,7 +32,9 @@
     animation: logo-spin infinite 20s linear;
   }
 }
-
+.h1 {
+  align-self : center
+}
 .card {
   padding: 2em;
 }
