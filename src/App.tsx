@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { FSchema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
-import {FlexifitFeedbackCreateForm} from "./ui-components" ;
+import {FlexifitFeedbackCreateForm } from "./ui-components" ;
 
 
 const client = generateClient<FSchema>();
@@ -16,17 +16,15 @@ function App() {
   }, []);
 
   function createFlexiFitFeedback() {
-    // client.models.FlexifitFeedback.create({ comment: window.FormData() });
+    console.log("Creating function")
+    // client.models.FlexifitFeedback.create();
   }
 
   return (
     <main>
       <h1>My Feedback</h1>
       <FlexifitFeedbackCreateForm />
-      <button onClick={createFlexiFitFeedback}>Refresh</button>
-      <ul>
-      Number of Items : {todos.length} 
-      </ul>
+    
     </main>
   );
 }

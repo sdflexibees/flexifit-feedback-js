@@ -8,14 +8,39 @@ export const createFlexifitFeedback = /* GraphQL */ `
     $input: CreateFlexifitFeedbackInput!
   ) {
     createFlexifitFeedback(condition: $condition, input: $input) {
+      OtherCommitments
       candidateId
       candidateLocation
       candidateName
+      careGiving
+      careerAmbition
       comment
       createdAt
+      driveToWork
+      extentOfCareGiving
+      familySupportHousehold
+      familySupportKids
+      financialDrive
+      helperSupportCareGiving
+      helperSupportHousehold
+      helperSupportKids
       id
       interviewDate
       interviewer
+      interviewerJobLocation
+      jobLocation
+      jobSearch
+      jobSuccess
+      kidsAge
+      lastWorked
+      learningReadiness
+      maritalStatus
+      readyToExtendSupport
+      roles
+      singleType
+      spouseSupportHousehold
+      spouseSupportKids
+      typeOfContract
       updatedAt
       __typename
     }
@@ -27,14 +52,39 @@ export const deleteFlexifitFeedback = /* GraphQL */ `
     $input: DeleteFlexifitFeedbackInput!
   ) {
     deleteFlexifitFeedback(condition: $condition, input: $input) {
+      OtherCommitments
       candidateId
       candidateLocation
       candidateName
+      careGiving
+      careerAmbition
       comment
       createdAt
+      driveToWork
+      extentOfCareGiving
+      familySupportHousehold
+      familySupportKids
+      financialDrive
+      helperSupportCareGiving
+      helperSupportHousehold
+      helperSupportKids
       id
       interviewDate
       interviewer
+      interviewerJobLocation
+      jobLocation
+      jobSearch
+      jobSuccess
+      kidsAge
+      lastWorked
+      learningReadiness
+      maritalStatus
+      readyToExtendSupport
+      roles
+      singleType
+      spouseSupportHousehold
+      spouseSupportKids
+      typeOfContract
       updatedAt
       __typename
     }
@@ -46,14 +96,39 @@ export const updateFlexifitFeedback = /* GraphQL */ `
     $input: UpdateFlexifitFeedbackInput!
   ) {
     updateFlexifitFeedback(condition: $condition, input: $input) {
+      OtherCommitments
       candidateId
       candidateLocation
       candidateName
+      careGiving
+      careerAmbition
       comment
       createdAt
+      driveToWork
+      extentOfCareGiving
+      familySupportHousehold
+      familySupportKids
+      financialDrive
+      helperSupportCareGiving
+      helperSupportHousehold
+      helperSupportKids
       id
       interviewDate
       interviewer
+      interviewerJobLocation
+      jobLocation
+      jobSearch
+      jobSuccess
+      kidsAge
+      lastWorked
+      learningReadiness
+      maritalStatus
+      readyToExtendSupport
+      roles
+      singleType
+      spouseSupportHousehold
+      spouseSupportKids
+      typeOfContract
       updatedAt
       __typename
     }

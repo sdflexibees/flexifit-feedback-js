@@ -11,12 +11,12 @@ specifies that any user authenticated via an API key can "create", "read",
 const schema = a.schema({
   FlexifitFeedback: a
     .model({
-      candidateName : a.string(),
-      candidateId : a.string(),
-      candidateLocation : a.string(),
-      interviewer : a.string(),
-      interviewDate : a.date(),
-      jobLocation: a.string(),
+      candidateName : a.string().required(),
+      candidateId : a.string().required(),
+      candidateLocation : a.string().required(),
+      interviewer : a.string().required(),
+      interviewDate : a.date().required(),
+      jobLocation: a.string().required(),
       roles : a.enum (roleEnum),
       interviewerJobLocation: a.string(),
       typeOfContract: a.enum(contractEnum),
@@ -42,7 +42,7 @@ const schema = a.schema({
       helperSupportCareGiving: a.enum(supportEnum),
       readyToExtendSupport: a.enum(supportEnum),
       OtherCommitments: a.enum(commitmentsEnum),
-      comment : a.string(),
+      comment : a.string().required(),
     })
     .authorization((allow) => [allow.publicApiKey()]),
 });
