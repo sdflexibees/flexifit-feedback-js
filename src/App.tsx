@@ -17,13 +17,13 @@ function App() {
 
   
   return (
-    // <main>
+    <main>
       
     <div>
-      {/* <AmplifySignOut /> */}
+    {/* <AmplifySignOut /> */}
     <h1>My Feedback</h1>
     <FlexifitFeedbackCreateForm /></div>
-    // </main>
+   </main>
   );
 }
 
