@@ -1,6 +1,6 @@
 import { type ClientSchema, a, defineData } from "@aws-amplify/backend";
 import {roleEnum, contractEnum, commitmentsEnum, supportEnum, workEnum, careEnum, financeEnum, 
-  careerAmbition, learningEnum, searchEnum, searchResultEnum,recencyEnum, ageEnum, maritalEnum, singleTypeEnum, extentEnum} from "././constants";
+  careerAmbitionEnum, learningEnum, searchEnum, searchResultEnum,recencyEnum, ageEnum, maritalEnum, singleTypeEnum, extentEnum} from "././constants";
 
 /*== STEP 1 ===============================================================
 The section below creates a FlexifitFeedback database table with a "content" field. Try
@@ -17,39 +17,47 @@ const schema = a.schema({
       interviewer : a.string().required(),
       interviewDate : a.date().required(),
       jobLocation: a.string().required(),
-      roles : a.enum (roleEnum),
+      roles : a.enum (Object.keys(roleEnum)),
       interviewerJobLocation: a.string(),
-      typeOfContract: a.enum(contractEnum),
-      driveToWork : a.enum(workEnum),
-      careerAmbition: a.enum(careerAmbition),
-      financialDrive: a.enum(financeEnum),
-      learningReadiness: a.enum(learningEnum),
-      jobSearch : a.enum(searchEnum),
-      jobSuccess: a.enum(searchResultEnum),
-      lastWorked: a.enum(recencyEnum),
-      maritalStatus: a.enum(maritalEnum),
-      singleType: a.enum(singleTypeEnum),
-      kidsAge: a.enum(ageEnum),
-      spouseSupportKids: a.enum(supportEnum),
-      helperSupportKids: a.enum(supportEnum),
-      familySupportKids: a.enum(supportEnum),
-      spouseSupportHousehold: a.enum(supportEnum),
-      helperSupportHousehold: a.enum(supportEnum),
-      familySupportHousehold: a.enum(supportEnum),
+      typeOfContract: a.enum(Object.keys(contractEnum)),
+      driveToWork : a.enum(Object.keys(workEnum)),
+      careerAmbition: a.enum(Object.keys(careerAmbitionEnum)),
+      financialDrive: a.enum(Object.keys(financeEnum)),
+      learningReadiness: a.enum(Object.keys(learningEnum)),
+      jobSearch : a.enum(Object.keys(searchEnum)),
+      jobSuccess: a.enum(Object.keys(searchResultEnum)),
+      lastWorked: a.enum(Object.keys(recencyEnum)),
+      maritalStatus: a.enum(Object.keys(maritalEnum)),
+      singleType: a.enum(Object.keys(singleTypeEnum)),
+      kidsAge: a.enum(Object.keys(ageEnum)),
+      spouseSupportKids: a.enum(Object.keys(supportEnum)),
+      helperSupportKids: a.enum(Object.keys(supportEnum)),
+      familySupportKids: a.enum(Object.keys(supportEnum)),
+      spouseSupportHousehold: a.enum(Object.keys(supportEnum)),
+      helperSupportHousehold: a.enum(Object.keys(supportEnum)),
+      familySupportHousehold: a.enum(Object.keys(supportEnum)),
       
-      careGiving: a.enum(careEnum),
-      extentOfCareGiving: a.enum(extentEnum),
-      helperSupportCareGiving: a.enum(supportEnum),
-      readyToExtendSupport: a.enum(supportEnum),
-      OtherCommitments: a.enum(commitmentsEnum),
+      careGiving: a.enum(Object.keys(careEnum)),
+      extentOfCareGiving: a.enum(Object.keys(extentEnum)),
+      helperSupportCareGiving: a.enum(Object.keys(supportEnum)),
+      readyToExtendSupport: a.enum(Object.keys(supportEnum)),
+      OtherCommitments: a.enum(Object.keys(commitmentsEnum)),
       comment : a.string().required(),
     })
     .authorization((allow) => [allow.publicApiKey()]),
 });
 
-
+const weightSchema = a.schema({
+  FlexifitFeedbackWeights: a
+    .model({
+      columnName: a.string(),
+      columnWeight: a.float()
+    })
+    .authorization((allow) => [allow.publicApiKey()]),
+});
 
 export type FSchema = ClientSchema<typeof schema>;
+export type WeightSchema = ClientSchema<typeof weightSchema>
 
 export const data = defineData({
   schema,
