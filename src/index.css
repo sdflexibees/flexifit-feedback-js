@@ -33,6 +33,12 @@ label {
   text-align: right;
   /* border: 1px dashed black; */
 }
+input, select {
+  height: 100%;
+  padding: 8px;
+  
+  /* border: 1px dashed black; */
+}
 svg {
   visibility: hidden;
 }
@@ -59,6 +65,7 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
 .amplify-label {
   padding: 1em 1em 1em 1em;
 }
@@ -67,9 +74,7 @@ button:focus-visible {
 }
 .amplify-flex {
   flex-direction: row;
-
   display: flex;
-
   align-content: center;
 
 }
